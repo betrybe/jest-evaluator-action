@@ -1,4 +1,4 @@
-# #!/bin/sh -l
+#!/bin/sh -l
 
 cp /evaluator.js /github/workspace
 npm install -g jest
