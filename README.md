@@ -1,7 +1,7 @@
 # jest-evaluator-action
 Jest evaluator action for Tryber projects
 
-This action evaluate Trybe projects with [Jest](https://jestjs.io/) library.
+This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
 ## Inputs
 
