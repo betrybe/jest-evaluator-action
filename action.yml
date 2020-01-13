@@ -1,0 +1,8 @@
+name: 'Jest evaluator'
+description: 'Jest evaluator action for Tryber projects'
+outputs:
+  result:
+    description: 'Jest unit tests JSON results in base64 format.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
