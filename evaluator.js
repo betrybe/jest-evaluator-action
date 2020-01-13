@@ -8,12 +8,13 @@ const evaluationFileContent = fs.readFileSync(process.argv[2]);
 const testData = JSON.parse(evaluationFileContent);
 const results = testData.testResults[0].assertionResults;
 
-const mappingUniTestsToRequirements = fs.readFileSync(process.argv[3]);
+const mappingFileContent = fs.readFileSync(process.argv[3]);
+const mappingUnitTestsToRequirements = JSON.parse(mappingFileContent);
 
 const evaluations = results.map((result) => {
   const testName = result.fullName;
   return {
-    requirement_id: mappingUniTestsToRequirements[testName],
+    requirement_id: mappingUnitTestsToRequirements[testName],
     grade: (result.status === 'passed') ? 3 : 1
   }
 });
