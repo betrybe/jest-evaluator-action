@@ -24,4 +24,4 @@ fs.writeFileSync(process.argv[4], JSON.stringify({
   evaluations: [...evaluations]
 }));
 
-process.exit()
+process.exit();
