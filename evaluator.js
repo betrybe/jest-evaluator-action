@@ -23,3 +23,5 @@ fs.writeFileSync(process.argv[4], JSON.stringify({
   github_repository_name: githubRepositoryName,
   evaluations: [...evaluations]
 }));
+
+process.exit()
