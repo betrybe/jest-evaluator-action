@@ -3,7 +3,7 @@
 cp /evaluator.js /github/workspace
 npm install -g jest
 jest --json --outputFile=evaluation.json
-node evaluator.js evaluation.json mapping.json result.json
+node evaluator.js evaluation.json requirements_mapping.json result.json
 
 if [ $? != 0 ]; then
   echo "Execution error"
