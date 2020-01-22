@@ -3,6 +3,8 @@ description: 'Jest evaluator action for Tryber projects'
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
+  pr-number:
+    description: 'Pull Request number that trigger build.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
