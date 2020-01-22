@@ -11,6 +11,10 @@ This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
 Jest unit tests JSON results in base64 format.
 
+### `pr-number`
+
+Pull Request number that trigger build.
+
 ## Simple usage example
 ```yml
 uses: betrybe/jest-evaluator-action
