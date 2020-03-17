@@ -37,12 +37,24 @@ The project that want to use this action should keep a file called `requirements
 
 ```json
 {
-  "test-name-1": 17,
-  "unit test 2 name": 36,
+  "describe-name-1": 17,
+  "describe test 2 name": 36,
 }
 ```
 
-where `"test-name-1"` and `"unit test 2 name"` are the tests' name and `17` and `36` are the requirements identifiers.
+where `"describe-name-1"` and `"describe test 2 name"` are the describe blocks name and `17` and `36` are the requirements identifiers.
+
+Example:
+
+```javascript
+describe('describe-name-1', () => {
+  it('unit test 1', { ... });
+  it('unit test 2', { ... });
+  it('unit test 3', { ... });
+});
+```
+
+The block `describe-name-1` will be assigned with grade `3` if all tests `unit test 1`, `unit test 2` and `unit test 3` are correct.
 
 ## Learn about GitHub Actions
 
