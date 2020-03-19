@@ -1,0 +1,22 @@
+{
+  "name": "jest-evaluator-action",
+  "version": "1.0.0",
+  "description": "Jest evaluator action for Tryber projects",
+  "main": "evaluator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betrybe/jest-evaluator-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betrybe/jest-evaluator-action/issues"
+  },
+  "homepage": "https://github.com/betrybe/jest-evaluator-action#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
