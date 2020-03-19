@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/betrybe/jest-evaluator-action#readme",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "minimist": ">=1.2.2"
   }
 }
