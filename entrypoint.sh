@@ -5,13 +5,13 @@ TEST_REPOSITORY_BRANCH=${TEST_REPOSITORY_BRANCH:-master}
 
 git clone --branch $TEST_REPOSITORY_BRANCH https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
 rm -rf /project-tests/.git
-ls -lah /project-tests
 cp -r /project-tests/* .
-ls -lah
 npm install
 ls -lah
-# npm install -g jest
-./node_modules/.bin/jest --json --outputFile=evaluation.json
+ls -lah src
+ls -lah tests
+npm install -g jest
+# ./node_modules/.bin/jest --json --outputFile=evaluation.json
 node /evaluator.js evaluation.json requirements_mapping.json result.json
 
 if [ $? != 0 ]; then
