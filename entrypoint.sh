@@ -2,6 +2,7 @@
 
 git clone https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
 rm -rf /project-tests/.git
+ls -lah /project-tests
 cp -r /project-tests/* .
 ls -lah
 npm install
