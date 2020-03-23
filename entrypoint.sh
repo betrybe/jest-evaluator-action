@@ -3,7 +3,9 @@
 git clone https://github.com/$GITHUB_REPOSITORY-tests.git /project-tests
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
+ls -lah
 npm install
+ls -lah
 # npm install -g jest
 ./node_modules/.bin/jest --json --outputFile=evaluation.json
 node /evaluator.js evaluation.json requirements_mapping.json result.json
