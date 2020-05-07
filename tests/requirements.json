@@ -1,0 +1,12 @@
+{
+  "requirements": [{
+    "description": "Sum module",
+    "bonus": false
+  }, {
+    "description": "Power module",
+    "bonus": true
+  }, {
+    "description": "Multiply module",
+    "bonus": false
+  }]
+}
