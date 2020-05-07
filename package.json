@@ -5,7 +5,7 @@
   "main": "evaluator.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch --watchPathIgnorePatterns result.json"
+    "test:watch": "jest --watchAll --watchPathIgnorePatterns result.json"
   },
   "repository": {
     "type": "git",
