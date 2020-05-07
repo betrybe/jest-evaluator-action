@@ -1,8 +1,8 @@
 #!/bin/sh -l
 set -x
 
-REPOSITORY_NAME=@1
-REPOSITORY_BRANCH=@2
+REPOSITORY_NAME=$1
+REPOSITORY_BRANCH=$2
 
 git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
 rm -rf /project-tests/.git
