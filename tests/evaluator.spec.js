@@ -9,7 +9,7 @@ describe('Evaluator', () => {
 
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
     const jestOutputFile = buildPath(pwd, 'tests/jest-output.json');
-    const requirementsMappingFile = buildPath(pwd, 'tests/requirements.json');
+    const requirementsFile = buildPath(pwd, 'tests/requirements.json');
     const resultFile = buildPath(pwd, 'tests/result.json');
 
     const expectedResultJson = {
@@ -27,7 +27,10 @@ describe('Evaluator', () => {
       }]
     }
 
-    execSync(`node ${evaluatorFile} ${jestOutputFile} ${requirementsMappingFile} ${resultFile}`);
+    execSync(
+      `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
+      { stdio: 'inherit' }
+    );
 
     const evaluationFileContent = fs.readFileSync(resultFile);
     const resultJson = JSON.parse(evaluationFileContent);

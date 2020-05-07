@@ -6,21 +6,36 @@ const WRONG_ANSWER_GRADE = 1;
 const githubUsername = process.env.GITHUB_ACTOR || 'no_actor';
 const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 
-// https://nodejs.org/en/knowledge/command-line/how-to-parse-command-line-arguments/
-const evaluationFileContent = fs.readFileSync(process.argv[2]);
-const testData = JSON.parse(evaluationFileContent);
+const jestOuputFile = fs.readFileSync(process.argv[2]);
+const { testResults } = JSON.parse(jestOuputFile);
 
-const mappingFileContent = fs.readFileSync(process.argv[3]);
-const mappingUnitTestsToRequirements = JSON.parse(mappingFileContent);
+const requirementsFile = fs.readFileSync(process.argv[3]);
+const { requirements } = JSON.parse(requirementsFile);
 
-const evaluations = testData.testResults.map((result) => {
-  const describeName = result.assertionResults[0].ancestorTitles[0];
+const evaluationsByRequirements =
+  testResults.map(({ assertionResults }) => (
+    assertionResults.map(({ ancestorTitles, status }) => ({
+      describe: ancestorTitles[0],
+      status
+    }))
+  )).flat()
+    .reduce((acc, evaluation) => {
+      const status = acc[evaluation.describe];
+      const currentStatus = evaluation.status;
+      if (!status || currentStatus === 'failed') {
+        acc[evaluation.describe] = currentStatus;
+        return acc;
+      }
+      if (status === 'failed') return acc;
+      return acc;
+    }, {});
 
-  return {
-    requirement_id: mappingUnitTestsToRequirements[describeName],
-    grade: (result.status === 'passed') ? CORRECT_ANSWER_GRADE : WRONG_ANSWER_GRADE
-  }
-});
+const evaluations =
+    requirements.map(({ description }) => ({
+      description,
+      grade: (evaluationsByRequirements[description] === 'passed') ? CORRECT_ANSWER_GRADE : WRONG_ANSWER_GRADE
+    }));
+
 
 fs.writeFileSync(process.argv[4], JSON.stringify({
   github_username: githubUsername,
