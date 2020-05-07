@@ -8,7 +8,7 @@ rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
 ./node_modules/.bin/jest --json --outputFile=evaluation.json
-node /evaluator.js evaluation.json requirements.json result.json
+node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
   echo "Execution error"
