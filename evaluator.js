@@ -26,7 +26,6 @@ const evaluationsByRequirements =
         acc[evaluation.describe] = currentStatus;
         return acc;
       }
-      if (status === 'failed') return acc;
       return acc;
     }, {});
 
