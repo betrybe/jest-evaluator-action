@@ -5,6 +5,14 @@ This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
 ## Inputs
 
+### `repository-test-name`
+
+GitHub repository that store the tests
+
+### `repository-test-branch`
+
+GitHub specific branch
+
 ## Outputs
 
 ### `result`
@@ -15,16 +23,20 @@ Jest unit tests JSON results in base64 format.
 
 Pull Request number that trigger build.
 
-## Simple usage example
+## Usage example
+
 ```yml
-uses: betrybe/jest-evaluator-action
+- uses: betrybe/jest-evaluator-action@v3
+  with:
+    repository-test-name: my-org/my-repo
+    repository-test-branch: master # master is default
 ```
 
 ## How to get result output
 ```yml
 - name: Jest evaluator
   id: evaluator
-  uses: betrybe/jest-evaluator-action
+  uses: betrybe/jest-evaluator-action@v3
 - name: Next step
   uses: another-github-action
   with:
@@ -33,28 +45,51 @@ uses: betrybe/jest-evaluator-action
 
 ## Project contraints
 
-The project that want to use this action should keep a file called `requirements_mapping.json` in root folder with this structure:
-
-```json
-{
-  "describe-name-1": 17,
-  "describe test 2 name": 36,
-}
-```
-
-where `"describe-name-1"` and `"describe test 2 name"` are the describe blocks name and `17` and `36` are the requirements identifiers.
+The project that want to use this action should implement unit tests grouping them using `describe` statements.
+Each `describe` statement will be mapped to a requirement.
 
 Example:
 
 ```javascript
-describe('describe-name-1', () => {
-  it('unit test 1', { ... });
-  it('unit test 2', { ... });
-  it('unit test 3', { ... });
+describe('requirement #1' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #2' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
+});
+
+describe('requirement #3' () => {
+  it('unit test1', () => {});
+  it('unit test2', () => {});
+  it('unit test3', () => {});
 });
 ```
 
-The block `describe-name-1` will be assigned with grade `3` if all tests `unit test 1`, `unit test 2` and `unit test 3` are correct.
+Project repository must create a file called `requirements.json` inside `.trybe` folder.
+
+This file should have the following structure:
+
+``json
+{
+  "requirements": [{
+    "description": "requirement #1",
+    "bonus": false
+  }, {
+    "description": "requirement #2",
+    "bonus": true
+  }, {
+    "description": "requirement #3",
+    "bonus": false
+  }]
+}
+```
+
+where the `"requirement #1"`, `"requirement #2"` and `"requirement #3"` are the requirements and describes names.
 
 ## Learn about GitHub Actions
 

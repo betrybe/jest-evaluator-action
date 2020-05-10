@@ -1,54 +1,154 @@
 {
-  "testResults": [{
-    "assertionResults": [{
-      "ancestorTitles": [
-        "my first describe"
-      ],
-      "fullName": "my first describe my first test",
-      "title": "my first test",
-      "status": "passed"
-    }, {
-      "ancestorTitles": [
-        "my first describe"
-      ],
-      "fullName": "my first describe my second test",
-      "title": "my second test",
-      "status": "passed"
-    }],
-    "status": "passed"
-  }, {
-    "assertionResults": [{
-      "ancestorTitles": [
-        "my second describe"
-      ],
-      "fullName": "my second describe my first test",
-      "title": "my first test",
-      "status": "failed"
-    }, {
-      "ancestorTitles": [
-        "my first describe"
-      ],
-      "fullName": "my second describe my second test",
-      "title": "my second test",
-      "status": "passed"
-    }],
-    "status": "failed"
-  }, {
-    "assertionResults": [{
-      "ancestorTitles": [
-        "my third describe"
-      ],
-      "fullName": "my third describe my first test",
-      "title": "my first test",
-      "status": "failed"
-    }, {
-      "ancestorTitles": [
-        "my first describe"
-      ],
-      "fullName": "my third describe my second test",
-      "title": "my second test",
-      "status": "failed"
-    }],
-    "status": "failed"
-  }]
+  "numFailedTestSuites":1,
+  "numFailedTests":1,
+  "numPassedTestSuites":2,
+  "numPassedTests":6,
+  "numPendingTestSuites":0,
+  "numPendingTests":0,
+  "numRuntimeErrorTestSuites":0,
+  "numTodoTests":0,
+  "numTotalTestSuites":3,
+  "numTotalTests":7,
+  "openHandles":[
+
+  ],
+  "snapshot":{
+     "added":0,
+     "didUpdate":false,
+     "failure":false,
+     "filesAdded":0,
+     "filesRemoved":0,
+     "filesRemovedList":[
+
+     ],
+     "filesUnmatched":0,
+     "filesUpdated":0,
+     "matched":0,
+     "total":0,
+     "unchecked":0,
+     "uncheckedKeysByFile":[
+
+     ],
+     "unmatched":0,
+     "updated":0
+  },
+  "startTime":1588874889401,
+  "success":false,
+  "testResults":[
+     {
+        "assertionResults":[
+           {
+              "ancestorTitles":[
+                 "Multiply module"
+              ],
+              "failureMessages":[
+                 "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\n    at Object.<anonymous> (/Users/jean/betrybe/sd-0x-blockY-project-name/src/multiply.spec.js:5:28)\n    at Object.asyncJestTest (/Users/jean/betrybe/sd-0x-blockY-project-name/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:100:37)\n    at /Users/jean/betrybe/sd-0x-blockY-project-name/node_modules/jest-jasmine2/build/queueRunner.js:47:12\n    at new Promise (<anonymous>)\n    at mapper (/Users/jean/betrybe/sd-0x-blockY-project-name/node_modules/jest-jasmine2/build/queueRunner.js:30:19)\n    at /Users/jean/betrybe/sd-0x-blockY-project-name/node_modules/jest-jasmine2/build/queueRunner.js:77:41"
+              ],
+              "fullName":"Multiply module should multiply 0 with 1",
+              "location":null,
+              "status":"failed",
+              "title":"should multiply 0 with 1"
+           },
+           {
+              "ancestorTitles":[
+                 "Multiply module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Multiply module should multiply 2 with 2",
+              "location":null,
+              "status":"passed",
+              "title":"should multiply 2 with 2"
+           }
+        ],
+        "endTime":1588874891375,
+        "message":"\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mMultiply module › should multiply 0 with 1\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\n    Expected: \u001b[32m0\u001b[39m\n    Received: \u001b[31m1\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 3 | \u001b[39mdescribe(\u001b[32m'Multiply module'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 4 | \u001b[39m  it(\u001b[32m'should multiply 0 with 1'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 5 | \u001b[39m    expect(multiply(\u001b[35m0\u001b[39m\u001b[33m,\u001b[39m \u001b[35m1\u001b[39m))\u001b[33m.\u001b[39mtoBe(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m   | \u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 6 | \u001b[39m  })\u001b[33m;\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 7 | \u001b[39m\u001b[0m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 8 | \u001b[39m  it(\u001b[32m'should multiply 2 with 2'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/multiply.spec.js\u001b[39m\u001b[0m\u001b[2m:5:28)\u001b[22m\u001b[2m\u001b[22m\n",
+        "name":"/Users/jean/betrybe/sd-0x-blockY-project-name/src/multiply.spec.js",
+        "startTime":1588874890772,
+        "status":"failed",
+        "summary":""
+     },
+     {
+        "assertionResults":[
+           {
+              "ancestorTitles":[
+                 "Sum module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Sum module should sum 3 and 4",
+              "location":null,
+              "status":"passed",
+              "title":"should sum 3 and 4"
+           },
+           {
+              "ancestorTitles":[
+                 "Sum module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Sum module should sum 0 and 0",
+              "location":null,
+              "status":"passed",
+              "title":"should sum 0 and 0"
+           },
+           {
+              "ancestorTitles":[
+                 "Sum module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Sum module should sum 1 and 5",
+              "location":null,
+              "status":"passed",
+              "title":"should sum 1 and 5"
+           }
+        ],
+        "endTime":1588874891636,
+        "message":"",
+        "name":"/Users/jean/betrybe/sd-0x-blockY-project-name/src/sum.spec.js",
+        "startTime":1588874891456,
+        "status":"passed",
+        "summary":""
+     },
+     {
+        "assertionResults":[
+           {
+              "ancestorTitles":[
+                 "Power module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Power module should power 2 with 3",
+              "location":null,
+              "status":"passed",
+              "title":"should power 2 with 3"
+           },
+           {
+              "ancestorTitles":[
+                 "Power module"
+              ],
+              "failureMessages":[
+
+              ],
+              "fullName":"Power module should power 2 with 1",
+              "location":null,
+              "status":"passed",
+              "title":"should power 2 with 1"
+           }
+        ],
+        "endTime":1588874891844,
+        "message":"",
+        "name":"/Users/jean/betrybe/sd-0x-blockY-project-name/src/power.spec.js",
+        "startTime":1588874891657,
+        "status":"passed",
+        "summary":""
+     }
+  ],
+  "wasInterrupted":false
 }

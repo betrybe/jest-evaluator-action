@@ -4,7 +4,8 @@
   "description": "Jest evaluator action for Tryber projects",
   "main": "evaluator.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll --watchPathIgnorePatterns result.json"
   },
   "repository": {
     "type": "git",

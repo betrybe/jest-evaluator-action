@@ -1,5 +1,13 @@
 name: 'Jest evaluator'
 description: 'Jest evaluator action for Tryber projects'
+inputs:
+  repository-test-name:
+    description: 'GitHub repository that store the tests'
+    required: true
+  repository-test-branch:
+    description: 'GitHub specific branch'
+    default: 'master'
+    required: true
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
@@ -8,3 +16,6 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository-test-name }}
+    - ${{ inputs.repository-test-branch }}
