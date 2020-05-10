@@ -26,7 +26,7 @@ Pull Request number that trigger build.
 ## Usage example
 
 ```yml
-- uses: betrybe/jest-evaluator-action
+- uses: betrybe/jest-evaluator-action@v3
   with:
     repository-test-name: my-org/my-repo
     repository-test-branch: master # master is default
