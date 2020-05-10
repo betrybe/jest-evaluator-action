@@ -74,7 +74,7 @@ Project repository must create a file called `requirements.json` inside `.trybe`
 
 This file should have the following structure:
 
-``json
+```json
 {
   "requirements": [{
     "description": "requirement #1",
