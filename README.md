@@ -36,7 +36,7 @@ Pull Request number that trigger build.
 ```yml
 - name: Jest evaluator
   id: evaluator
-  uses: betrybe/jest-evaluator-action
+  uses: betrybe/jest-evaluator-action@v3
 - name: Next step
   uses: another-github-action
   with:
