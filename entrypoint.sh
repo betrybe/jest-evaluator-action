@@ -8,7 +8,7 @@ git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /p
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
 npm install
-./node_modules/.bin/jest --json --outputFile=evaluation.json
+npm test -- --json --outputFile=evaluation.json
 node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
