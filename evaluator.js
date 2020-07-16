@@ -15,7 +15,7 @@ const { requirements } = JSON.parse(requirementsFile);
 const evaluationsByRequirements =
   testResults.map(({ assertionResults }) => (
     assertionResults.map(({ ancestorTitles, status }) => ({
-      describe: ancestorTitles[0],
+      describe: ancestorTitles[ancestorTitles.length - 1],
       status
     }))
   )).flat()
