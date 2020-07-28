@@ -8,6 +8,9 @@ inputs:
     description: 'GitHub specific branch'
     default: 'master'
     required: true
+  npm-start:
+    description: 'Run npm start and waits to http://localhost:3000 before testing'
+    default: false
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
@@ -19,3 +22,4 @@ runs:
   args:
     - ${{ inputs.repository-test-name }}
     - ${{ inputs.repository-test-branch }}
+    - ${{ inputs.npm-start }}
