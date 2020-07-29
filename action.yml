@@ -9,8 +9,11 @@ inputs:
     default: 'master'
     required: true
   npm-start:
-    description: 'Run npm start and waits to http://localhost:3000 before testing'
+    description: 'Run npm start and waits to url before testing'
     default: false
+  wait-for:
+    description: 'Url that npm start command waits for'
+    default: 'http://localhost:3000'
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
@@ -23,3 +26,4 @@ runs:
     - ${{ inputs.repository-test-name }}
     - ${{ inputs.repository-test-branch }}
     - ${{ inputs.npm-start }}
+    - ${{ inputs.wait-for }}

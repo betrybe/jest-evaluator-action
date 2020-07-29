@@ -15,7 +15,11 @@ GitHub specific branch
 
 ### `npm-start`
 
-Run npm start and waits to http://localhost:3000 before testing
+Run npm start and waits to url before testing
+
+### `wait-for`
+
+Url that npm start command waits for
 
 ## Outputs
 
