@@ -39,6 +39,7 @@ Pull Request number that trigger build.
     repository-test-name: my-org/my-repo
     repository-test-branch: master # master is default
     npm-start: true # false is default
+    wait-for: 'http://localhost:8080' # http://localhost:3000 is default
 ```
 
 ## How to get result output
