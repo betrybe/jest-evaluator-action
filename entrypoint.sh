@@ -12,8 +12,7 @@ cp -r /project-tests/* .
 npm install
 
 if $run_npm_start ; then
-  npm install -g wait-on
-  npm start & wait-on $wait_for_url
+  npm start & npx wait-on $wait_for_url
 fi
 
 npm test -- --json --outputFile=evaluation.json
