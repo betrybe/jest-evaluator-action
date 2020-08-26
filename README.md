@@ -13,6 +13,14 @@ GitHub repository that store the tests
 
 GitHub specific branch
 
+### `npm-start`
+
+Run npm start and waits to url before testing
+
+### `wait-for`
+
+Url that npm start command waits for
+
 ## Outputs
 
 ### `result`
@@ -30,6 +38,8 @@ Pull Request number that trigger build.
   with:
     repository-test-name: my-org/my-repo
     repository-test-branch: master # master is default
+    npm-start: true # false is default
+    wait-for: 'http://localhost:8080' # http://localhost:3000 is default
 ```
 
 ## How to get result output
