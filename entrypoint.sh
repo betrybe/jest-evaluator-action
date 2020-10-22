@@ -6,6 +6,8 @@ REPOSITORY_BRANCH=$2
 run_npm_start=$3
 wait_for_url=$4
 
+apt update && apt install libnss3-dev libxss1 libasound2 -y
+
 git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
 rm -rf /project-tests/.git
 cp -r /project-tests/* .
