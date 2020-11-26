@@ -5,14 +5,6 @@ This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
 ## Inputs
 
-### `repository-test-name`
-
-GitHub repository that store the tests
-
-### `repository-test-branch`
-
-GitHub specific branch
-
 ### `npm-start`
 
 Run npm start and waits to url before testing
