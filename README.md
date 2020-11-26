@@ -36,8 +36,8 @@ Pull Request number that trigger build.
 ```yml
 - uses: betrybe/jest-evaluator-action@v3
   with:
-    repository-test-name: my-org/my-repo
-    repository-test-branch: master # master is default
+    repository-test-name: 'my-org/my-repo'
+    repository-test-branch: 'master' # master is default
     npm-start: true # false is default
     wait-for: 'http://localhost:8080' # http://localhost:3000 is default
 ```
