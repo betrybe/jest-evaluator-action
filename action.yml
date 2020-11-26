@@ -1,13 +1,6 @@
 name: 'Jest evaluator'
 description: 'Jest evaluator action for Tryber projects'
 inputs:
-  repository-test-name:
-    description: 'GitHub repository that store the tests'
-    required: true
-  repository-test-branch:
-    description: 'GitHub specific branch'
-    default: 'master'
-    required: true
   npm-start:
     description: 'Run npm start and waits to url before testing'
     default: false
@@ -23,7 +16,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.repository-test-name }}
-    - ${{ inputs.repository-test-branch }}
     - ${{ inputs.npm-start }}
     - ${{ inputs.wait-for }}
