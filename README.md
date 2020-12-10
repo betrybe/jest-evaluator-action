@@ -26,10 +26,8 @@ Pull Request number that trigger build.
 ## Usage example
 
 ```yml
-- uses: betrybe/jest-evaluator-action@v3
+- uses: betrybe/jest-evaluator-action@v8
   with:
-    repository-test-name: my-org/my-repo
-    repository-test-branch: master # master is default
     npm-start: true # false is default
     wait-for: 'http://localhost:8080' # http://localhost:3000 is default
 ```
@@ -38,7 +36,7 @@ Pull Request number that trigger build.
 ```yml
 - name: Jest evaluator
   id: evaluator
-  uses: betrybe/jest-evaluator-action@v3
+  uses: betrybe/jest-evaluator-action@v8
 - name: Next step
   uses: another-github-action
   with:
