@@ -1,14 +1,9 @@
 #!/bin/sh -l
 set -x
 
-REPOSITORY_NAME=$1
-REPOSITORY_BRANCH=$2
-run_npm_start=$3
-wait_for_url=$4
+run_npm_start=$1
+wait_for_url=$2
 
-git clone --branch $REPOSITORY_BRANCH https://github.com/$REPOSITORY_NAME.git /project-tests
-rm -rf /project-tests/.git
-cp -r /project-tests/* .
 npm install
 
 if $run_npm_start ; then
@@ -24,4 +19,3 @@ if [ $? != 0 ]; then
 fi
 
 echo ::set-output name=result::`cat result.json | base64 -w 0`
-echo ::set-output name=pr-number::$(echo "$GITHUB_REF" | awk -F / '{print $3}')
