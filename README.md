@@ -13,6 +13,10 @@ Run npm start and waits to url before testing
 
 Url that npm start command waits for
 
+### `pr_author_username`
+
+Pull Request author username
+
 ## Outputs
 
 ### `result`
