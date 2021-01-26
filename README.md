@@ -5,32 +5,36 @@ This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
 ## Inputs
 
-### `npm-start`
+- `npm-start`
 
-Run npm start and waits to url before testing
+  Optional
 
-### `wait-for`
+  Run npm start and waits to url before testing.
 
-Url that npm start command waits for
+- `wait-for`
 
-### `pr_author_username`
+  Optional
 
-Pull Request author username
+  Url that npm start command waits for
+
+- `pr_author_username`
+
+  **Required**
+
+  Pull Request author username.
 
 ## Outputs
 
-### `result`
+- `result`
 
-Jest unit tests JSON results in base64 format.
-
-### `pr-number`
-
-Pull Request number that trigger build.
+  Jest unit tests JSON results in base64 format.
 
 ## Usage example
 
 ```yml
 - uses: betrybe/jest-evaluator-action@v8
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
   with:
     npm-start: true # false is default
     wait-for: 'http://localhost:8080' # http://localhost:3000 is default
@@ -41,6 +45,8 @@ Pull Request number that trigger build.
 - name: Jest evaluator
   id: evaluator
   uses: betrybe/jest-evaluator-action@v8
+  with:
+    pr_author_username: ${{ github.event.inputs.pr_author_username }}
 - name: Next step
   uses: another-github-action
   with:
