@@ -10,10 +10,6 @@ inputs:
   pr_author_username:
     description: 'Pull Request author username'
     required: true
-  version:
-    description: 'Evaluator version to use'
-    required: true
-    default: latest
 
 outputs:
   result:
@@ -21,7 +17,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 992764703785.dkr.ecr.us-east-2.amazonaws.com/jest-evaluator-action:${{ inputs.version }}
+  image: 'Dockerfile'
   args:
     - ${{ inputs.npm-start }}
     - ${{ inputs.wait-for }}

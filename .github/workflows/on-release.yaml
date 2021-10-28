@@ -1,11 +1,7 @@
-name: ECR evaluator image
+name: ECR evaluator image release
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Versão do avaliador que você deseja fazer o build"
-        required: true
-        default: "latest"
+  release:
+    types: [published]
 
 env:
   REPOSITORY: jest-evaluator-action
@@ -17,7 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.inputs.version }}
+          ref: ${{ github.ref }}
+
+      - name: Set release version
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -33,4 +32,4 @@ jobs:
       - name: Build Docker Image
         uses: betrybe/trybe-image-builder@main
         with:
-          imageTag: ${{ github.event.inputs.version }}
+          imageTag: ${{ env.RELEASE_VERSION }}
