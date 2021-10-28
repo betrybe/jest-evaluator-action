@@ -1,7 +1,9 @@
 name: ECR evaluator image
 on:
   push:
-    branches: [master]
+    branches: [build-version-image]
+  release:
+    types: [published]
   workflow_dispatch:
     inputs:
       version:
@@ -24,7 +26,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: ${{ secrets.EKS_ACCESS_KEY_ID  }}
+          aws-access-key-id: ${{ secrets.EKS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.EKS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.EKS_REGION }}
           mask-aws-account-id: "no"
@@ -35,4 +37,4 @@ jobs:
       - name: Build Docker Image
         uses: betrybe/trybe-image-builder@main
         with:
-          imageTag: ${{ github.event.inputs.version }}
+          imageTag: v9
