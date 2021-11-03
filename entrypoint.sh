@@ -11,7 +11,7 @@ if $run_npm_start ; then
   npm start && npx wait-on $wait_for_url
 fi
 
-npm test -- --json --outputFile=evaluation.json
+npm test -- --json --forceExit --outputFile=evaluation.json
 node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
