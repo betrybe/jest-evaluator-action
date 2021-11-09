@@ -8,7 +8,8 @@ wait_for_url=$2
 npm install
 
 if $run_npm_start ; then
-  npm start && npx wait-on $wait_for_url
+  npm start & # Open server in background
+  npx wait-on -t 300000 $wait_for_url # wait for server until timeout
 fi
 
 npm test -- --json --forceExit --outputFile=evaluation.json
