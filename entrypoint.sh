@@ -11,7 +11,7 @@ if $run_npm_start ; then
   npx wait-on -t 300000 $wait_for_url # wait for server until timeout
 fi
 
-npm test -- --json --forceExit --outputFile=evaluation.json
+npx jest --json --forceExit --outputFile=evaluation.json
 node /evaluator.js evaluation.json .trybe/requirements.json result.json
 
 if [ $? != 0 ]; then
