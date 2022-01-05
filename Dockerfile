@@ -9,4 +9,6 @@ RUN apt update && apt install apt-utils gconf-service libasound2 libatk1.0-0 lib
 COPY entrypoint.sh /entrypoint.sh
 COPY evaluator.js /evaluator.js
 
+WORKDIR /app
+
 ENTRYPOINT ["/entrypoint.sh"]

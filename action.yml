@@ -10,12 +10,26 @@ inputs:
   pr_author_username:
     description: 'Pull Request author username'
     required: true
+
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.npm-start }}
-    - ${{ inputs.wait-for }}
+  using: 'composite'
+  steps:
+    - name: Pull image from ECR
+      shell: bash
+      run: |
+        docker pull 992764703785.dkr.ecr.us-east-2.amazonaws.com/jest-evaluator-action:v10
+
+    - name: Run evaluator
+      shell: bash
+      run: |
+        docker run --rm -i \
+        -e INPUT_PR_AUTHOR_USERNAME=${{ inputs.pr_author_username }} \
+        -e GITHUB_REPOSITORY=${{ github.repository }} \
+        -v ${{ github.workspace }}:/app \
+        992764703785.dkr.ecr.us-east-2.amazonaws.com/jest-evaluator-action:v10 \
+        ${{ inputs.npm-start }} \
+        ${{ inputs.wait-for }}

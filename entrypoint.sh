@@ -4,6 +4,7 @@ set -x
 run_npm_start=$1
 wait_for_url=$2
 
+ls -l
 npm install
 
 if $run_npm_start ; then
