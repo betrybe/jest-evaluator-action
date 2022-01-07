@@ -10,9 +10,11 @@ inputs:
   pr_author_username:
     description: 'Pull Request author username'
     required: true
+
 outputs:
   result:
     description: 'Jest unit tests JSON results in base64 format.'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
