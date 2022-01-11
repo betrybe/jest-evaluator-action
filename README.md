@@ -3,6 +3,8 @@ Jest evaluator action for Tryber projects
 
 This action evaluate Tryber projects with [Jest](https://jestjs.io/) library.
 
+**WARNING:** the image docker version specified in the `action.yml` must be the same as the last evaluator release version
+
 ## Inputs
 
 - `npm-start`
