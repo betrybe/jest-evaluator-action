@@ -4,6 +4,7 @@ set -x
 run_npm_start=$1
 wait_for_url=$2
 
+export NODE_OPTIONS=--max_old_space_size=4096
 npm install
 
 if $run_npm_start ; then
