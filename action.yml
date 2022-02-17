@@ -17,7 +17,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://betrybe/jest-evaluator-action:v9.1'
+  image: 'docker://betrybe/jest-evaluator-action:v9.2'
   args:
     - ${{ inputs.npm-start }}
     - ${{ inputs.wait-for }}
