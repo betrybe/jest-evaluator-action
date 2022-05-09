@@ -8,7 +8,8 @@ describe('Evaluator', () => {
     const pwd = execSync('pwd').toString().replace('\n', '');
 
     try {
-      if (fs.existsSync(pwd)) {
+      console.log(pwd + 'test/');
+      if (fs.existsSync(pwd + 'test/')) {
         console.log("Directory exists.")
       } else {
         console.log("Directory does not exist.")
@@ -17,7 +18,7 @@ describe('Evaluator', () => {
       console.log("An error occurred.")
     }
 
-    fs.readdirSync(pwd).forEach(file => {
+    fs.readdirSync(pwd + 'test/').forEach(file => {
       console.log(file);
     });
 
