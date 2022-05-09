@@ -7,9 +7,8 @@ describe('Evaluator', () => {
   it('', () => {
     const pwd = execSync('pwd').toString().replace('\n', '');
 
+    const checkPwd =  buildPath(pwd, 'test/')
     try {
-
-      const checkPwd =  buildPath(pwd, 'test/')
       console.log(checkPwd);
       if (fs.existsSync(checkPwd)) {
         console.log("Directory exists.")
