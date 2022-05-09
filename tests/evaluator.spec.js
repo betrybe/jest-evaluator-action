@@ -7,6 +7,20 @@ describe('Evaluator', () => {
   it('', () => {
     const pwd = execSync('pwd').toString().replace('\n', '');
 
+    try {
+      if (fs.existsSync(pwd)) {
+        console.log("Directory exists.")
+      } else {
+        console.log("Directory does not exist.")
+      }
+    } catch(e) {
+      console.log("An error occurred.")
+    }
+
+    fs.readdirSync(pwd).forEach(file => {
+      console.log(file);
+    });
+
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
     const jestOutputFile = buildPath(pwd, 'tests/jest-output.json');
     const requirementsFile = buildPath(pwd, 'tests/requirements.json');
