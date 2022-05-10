@@ -7,7 +7,7 @@ describe('Evaluator', () => {
   it('', () => {
     const pwd = execSync('pwd').toString().replace('\n', '');
 
-    const checkPwd =  buildPath(pwd, 'test/')
+    const checkPwd = buildPath(pwd);
     try {
       console.log(checkPwd);
       if (fs.existsSync(checkPwd)) {
