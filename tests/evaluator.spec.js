@@ -10,7 +10,7 @@ describe('Evaluator', () => {
     /* const checkPwd = buildPath(pwd, 'test/'); */
     try {
       console.log('pwd', pwd);
-      if (fs.existsSync(checkPwd)) {
+      if (fs.existsSync(pwd)) {
         console.log("Directory exists.")
       } else {
         console.log("Directory does not exist.")
@@ -19,8 +19,8 @@ describe('Evaluator', () => {
       console.log("An error occurred.")
     }
 
-    fs.readdirSync(checkPwd).forEach(file => {
-      console.log(file);
+    fs.readdirSync(pwd).forEach(file => {
+      console.log('file:', file);
     });
 
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
