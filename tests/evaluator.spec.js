@@ -20,7 +20,7 @@ describe('Evaluator', () => {
     }
 
     fs.readdirSync(pwd).forEach(file => {
-      console.log('file:', file);
+      console.log('file:',file);
     });
 
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
@@ -43,14 +43,14 @@ describe('Evaluator', () => {
       }]
     }
 
- /*    execSync(
+    execSync(
       `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
       { stdio: 'inherit' }
-    ); */
+    );
 
-/*     const evaluationFileContent = fs.readFileSync(resultFile);
+    const evaluationFileContent = fs.readFileSync(resultFile);
     const resultJson = JSON.parse(evaluationFileContent);
 
-    expect(resultJson).toMatchObject(expectedResultJson); */
+    expect(resultJson).toMatchObject(expectedResultJson);
   });
 });
