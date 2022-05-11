@@ -43,10 +43,10 @@ describe('Evaluator', () => {
       }]
     }
 
-    execSync(
-      `node ${jestOutputFile} ${requirementsFile} ${resultFile}`,
+ /*    execSync(
+      `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
       { stdio: 'inherit' }
-    );
+    ); */
 
     const evaluationFileContent = fs.readFileSync(resultFile);
     const resultJson = JSON.parse(evaluationFileContent);
