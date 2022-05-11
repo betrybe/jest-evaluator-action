@@ -44,7 +44,7 @@ describe('Evaluator', () => {
     }
 
     execSync(
-      `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
+      `node ${jestOutputFile} ${requirementsFile} ${resultFile}`,
       { stdio: 'inherit' }
     );
 
