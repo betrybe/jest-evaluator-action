@@ -6,6 +6,8 @@ const buildPath = (absolutePath, filePath) => (`${absolutePath}/${filePath}`);
 describe('Evaluator', () => {
   it('', () => {
     const pwd = execSync('pwd').toString().replace('\n', '');
+    
+    console.log(__dirname);
 
     /* const checkPwd = buildPath(pwd, 'test/'); */
     try {
@@ -20,9 +22,13 @@ describe('Evaluator', () => {
     }
 
     fs.readdirSync(pwd).forEach(file => {
-      console.log('file:',file);
+      console.log('file:', file);
     });
 
+    fs.readdirSync(__dirname).forEach(file => {
+      console.log({file, dir: __dirname});
+    });
+  
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
     const jestOutputFile = buildPath(pwd, 'test/jest-output.json');
     const requirementsFile = buildPath(pwd, 'test/requirements.json');
