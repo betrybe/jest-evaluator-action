@@ -5,11 +5,8 @@ const buildPath = (absolutePath, filePath) => (`${absolutePath}/${filePath}`);
 
 describe('Evaluator', () => {
   it('', () => {
-    const pwd = execSync('pwd').toString().replace('\n', '');
-    
-    console.log(__dirname);
+    const pwd = __dirname;
 
-    /* const checkPwd = buildPath(pwd, 'test/'); */
     try {
       console.log('pwd', pwd);
       if (fs.existsSync(pwd)) {
@@ -25,14 +22,10 @@ describe('Evaluator', () => {
       console.log('file:', file);
     });
 
-    fs.readdirSync(__dirname).forEach(file => {
-      console.log({file, dir: __dirname});
-    });
-  
     const evaluatorFile = buildPath(pwd, 'evaluator.js');
-    const jestOutputFile = buildPath(pwd, 'test/jest-output.json');
-    const requirementsFile = buildPath(pwd, 'test/requirements.json');
-    const resultFile = buildPath(pwd, 'test/result.json');
+    const jestOutputFile = buildPath(pwd, 'tests/jest-output.json');
+    const requirementsFile = buildPath(pwd, 'tests/requirements.json');
+    const resultFile = buildPath(pwd, 'tests/result.json');
 
     const expectedResultJson = {
       github_username: 'no_actor',
