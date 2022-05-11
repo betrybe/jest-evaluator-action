@@ -5,11 +5,11 @@ const buildPath = (absolutePath, filePath) => (`${absolutePath}/${filePath}`);
 
 describe('Evaluator', () => {
   it('', () => {
-    const pwd = __dirname;
-    const evaluatorFile = buildPath(pwd, 'evaluator.js');
-    const jestOutputFile = buildPath(pwd, 'tests/jest-output.json');
-    const requirementsFile = buildPath(pwd, 'tests/requirements.json');
-    const resultFile = buildPath(pwd, 'tests/result.json');
+    const currentPath = __dirname;
+    const evaluatorFile = buildPath(currentPath, 'evaluator.js');
+    const jestOutputFile = buildPath(currentPath, 'tests/jest-output.json');
+    const requirementsFile = buildPath(currentPath, 'tests/requirements.json');
+    const resultFile = buildPath(currentPath, 'tests/result.json');
 
     execSync(
       `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
