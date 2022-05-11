@@ -27,21 +27,6 @@ describe('Evaluator', () => {
     const requirementsFile = buildPath(pwd, 'tests/requirements.json');
     const resultFile = buildPath(pwd, 'tests/result.json');
 
-    const expectedResultJson = {
-      github_username: 'no_actor',
-      github_repository_name: 'no_repository',
-      evaluations: [{
-        description: "Sum module",
-        grade: 3
-      }, {
-        description: "Power module",
-        grade: 3
-      }, {
-        description: "Multiply module",
-        grade: 1
-      }]
-    }
-
     execSync(
       `node ${evaluatorFile} ${jestOutputFile} ${requirementsFile} ${resultFile}`,
       { stdio: 'inherit' }
@@ -49,6 +34,25 @@ describe('Evaluator', () => {
 
     const evaluationFileContent = fs.readFileSync(resultFile);
     const resultJson = JSON.parse(evaluationFileContent);
+
+    const expectedResultJson = {
+      github_username: resultJson.github_username,
+      github_repository_name: resultJson.github_repository_name,
+      evaluations: [
+        {
+          description: "Sum module",
+          grade: 3
+        },
+        {
+          description: "Power module",
+          grade: 3
+        },
+        {
+          description: "Multiply module",
+          grade: 1
+        }
+      ]
+    }
 
     expect(resultJson).toMatchObject(expectedResultJson);
   });
