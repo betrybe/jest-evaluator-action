@@ -17,7 +17,7 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://betrybe/jest-evaluator-action:v9.4'
+  image: 'docker://betrybe/jest-evaluator-action:igorg-teste-logs'
   args:
     - ${{ inputs.npm-start }}
     - ${{ inputs.wait-for }}
