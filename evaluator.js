@@ -20,7 +20,7 @@ const evaluationsByRequirements = testResults
       return ancestorTitles.map((describe) => ({ describe, status }));
     })
   )
-  .flat()
+  .flat(2)
   .reduce((acc, evaluation) => {
     const status = acc[evaluation.describe];
     const currentStatus = evaluation.status;
