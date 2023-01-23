@@ -9,8 +9,6 @@ const githubRepositoryName = process.env.GITHUB_REPOSITORY || 'no_repository';
 const jestOuputFile = fs.readFileSync(process.argv[2]);
 const { testResults } = JSON.parse(jestOuputFile);
 
-console.log('testResults ->', JSON.stringify(testResults));
-
 const requirementsFile = fs.readFileSync(process.argv[3]);
 const { requirements } = JSON.parse(requirementsFile);
 
@@ -38,11 +36,6 @@ const evaluations = requirements.map(({ description }) => ({
       ? CORRECT_ANSWER_GRADE
       : WRONG_ANSWER_GRADE,
 }));
-
-console.log(
-  'evaluationsByRequirements ->',
-  JSON.stringify(evaluationsByRequirements)
-);
 
 fs.writeFileSync(
   process.argv[4],
