@@ -1,23 +1,52 @@
-name: 'Jest evaluator'
-description: 'Jest evaluator action for Tryber projects'
+name: "Jest Evaluator"
+description: "Jest evaluator action for Tryber projects"
+
 inputs:
   npm-start:
-    description: 'Run npm start and waits to url before testing'
-    default: false
+    description: "Run npm start and waits to url before testing"
+    default: "false"
   wait-for:
-    description: 'Url that npm start command waits for'
-    default: 'http://localhost:3000'
+    description: "Url that npm start command waits for"
+    default: "http://localhost:3000"
   pr_author_username:
-    description: 'Pull Request author username'
+    description: "Pull Request author username"
     required: true
 
 outputs:
   result:
-    description: 'Jest unit tests JSON results in base64 format.'
+    description: "Jest unit tests JSON results in base64 format."
+    value: ${{ steps.base64.outputs.result }}
 
 runs:
-  using: 'docker'
-  image: 'docker://betrybe/jest-evaluator-action:v9.5'
-  args:
-    - ${{ inputs.npm-start }}
-    - ${{ inputs.wait-for }}
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: "16"
+
+    - run: |
+        cd $GITHUB_ACTION_PATH 
+        npm install
+      shell: bash
+
+    - name: Wait for server
+      if: ${{ inputs.npm-start == 'true' }}
+      run: npm start & npx wait-on -t 300000 ${{ inputs.wait-for }}
+      shell: bash
+
+    - name: Run Jest
+      run: npm test -- --json --forceExit --outputFile=evaluation.json
+      shell: bash
+      continue-on-error: true
+
+    - name: Run evaluator
+      shell: bash
+      env:
+        INPUT_PR_AUTHOR_USERNAME: ${{inputs.pr_author_username}}
+      run: node $GITHUB_ACTION_PATH/evaluator.js evaluation.json .trybe/requirements.json result.json
+
+    - name: Save output to base64
+      id: base64
+      shell: bash
+      run: echo "result=`cat result.json | base64 -w 0`" >> $GITHUB_OUTPUT
